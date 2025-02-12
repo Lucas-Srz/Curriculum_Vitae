@@ -10,4 +10,4 @@ Lors de ma formation développeur Web et Web mobile, j'ai réaliser mon CV sous 
 
 ## Fonctionnement
 
-Rendez-vous sur mon [Curriculum Vitae]([https://lucas-srz.github.io/Curriculum_Vitae/]) !
+Rendez-vous sur mon [Curriculum Vitae](https://lucas-srz.github.io/Curriculum_Vitae/) !
