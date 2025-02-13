@@ -7,35 +7,29 @@
 }
 
 *{
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
 body{
-    display: flex;
-    flex-direction: column;
     background-color: var(--color-yellow);
+    width: 100%;
 }
 
-title{
-    display: none;
+.content {
+    display: grid;
+    gap: 8px;
+    margin: 5%;
 }
 
-article{
-    margin: 25px;
-}
-
-section{
-    margin-bottom: 15px;
+.content section {
+    padding: 10px;
+    width: auto;
 }
 
 .fond{
-    padding-top: 10px;
-    padding-bottom: 10px;
     background-image: linear-gradient( var(--color-white-op),var(--color-white-op));
     border-radius: 10px;
-    padding: 10px;
 
     display: flex;
     flex-direction: column;
@@ -43,7 +37,6 @@ section{
 }
 
 a{
-    /* text-decoration: none; */
     color: black;
 }
 
@@ -51,8 +44,7 @@ ul{
     padding-left: 15px;
 }
 
-
-/* Section - Présentation */
+/* ----- Section - Présentation ----- */
 .pre{
     display: flex;
     flex-direction: row;
@@ -79,8 +71,7 @@ h1{
     margin-left: 80%;
 }
 
-/* Section - Information */ 
-
+/* ----- Section - Information ----- */ 
 .imgInfo{
     width: 8%;
 }
@@ -99,8 +90,8 @@ figcaption{
     Liste des class des catégories :
     .pre{} -> Présentation
     .inf{} -> Information
-    .lag{} -> Langues
     .stg{} -> Stage
+    .lag{} -> Langues
     .dip{} -> Diplômes et Formation
     .exp{} -> Expériences
     .ats{} -> Atouts
@@ -114,9 +105,15 @@ figcaption{
 /* XXX plus grand ou égale à XXXpx */
 /* Tablette ≥ 426px */
 @media screen and (min-width: 426px) {
-    /* body{
-        background-color: red;
-    } */
+    .pre, .inf, .stg, .dip, .exp, .lag, .lam{
+        grid-column-start: 1;
+        grid-column-end: span 2;
+    }
+
+    .cop{
+        grid-row-start: 7;
+        grid-row-end: span 3;
+    }
 
     .imgTete{
         width: 15%;
@@ -131,46 +128,49 @@ figcaption{
 
 /* LapTop (NoteBock) ≥ 769px */
 @media screen and (min-width: 769px) {
-    article{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-auto-rows: repeat(12, 1fr);
-
-
-        /* margin: 15px; */
+    .content{
+        margin: 3%;
     }
 
-    section{
-        margin: 5px;
+    .pre, .inf, .dip, .exp{
+        grid-column-start:1;
+        grid-column-end: 1;
     }
 
-    .pre{order: 1;}
-    .inf{order: 3;}
-    .lag{order: 2;}
-    .stg{order: 5;}
-    .dip{order: 6;}
-    .exp{order: 8;}
-    .ats{order: 4;}
-    .cop{order: 7;}
-    .ref{order: 10;}
-    .cdi{order: 9;}
-    .lam{order: 11;}
+    .lag, .ats, .cop, .ref, .cdi, .lam{
+        grid-column-start: 2;
+        grid-column-end: 2;
+    }
+
+    .lag{grid-row-start: 1;}
+    .ats{grid-row-start: 2;}
+    .cop{grid-row-start: 4; grid-row-end: 4;}
+    .dip{grid-row-start: 4;}
+    .stg{grid-row-start: 3;}
+    .lam{grid-column-start: 1; grid-row-start: 6;}
 }
 
 /* Desktop ≥ 1025px */
 @media screen and (min-width: 1025px) {
-    article{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-auto-rows: repeat(6, 1fr);
+    body{
+        width: 100%;
     }
 
-    .pre, .inf, .stg, .cop, .cdi, .lam{
-        margin-left: 45%;
+    .content{
+        grid-template-columns: 24.1% 25% 25% 24.1%;
+        margin: 1%;
     }
 
-    .lag, .ats, .dip, .exp, .ref{
-        margin-right: 45%;
+    .pre, .inf, .dip, .exp{
+        grid-column-start:2;
+        grid-column-end: 2;
     }
 
+    .lag, .ats, .cop, .ref, .cdi, .lam{
+        grid-column-start: 3;
+        grid-column-end: 3;
+    }
+
+    .stg{grid-column-start: 2; grid-row-start: 3;}
+    .lam{grid-column-start: 2; grid-row-start: 6;}
 }
